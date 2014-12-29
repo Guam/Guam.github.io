@@ -1,9 +1,4 @@
-.overlay {
-   background:transparent; 
-   position:relative; 
-   width:800px;
-   height:512px; /* your iframe height */
-   top:512px;  /* your iframe height */
-   margin-top:-512px;  /* your iframe height */
-   z-index: 1;
+.disable-hover,
+.disable-hover * {
+  pointer-events: none !important;
 }
