@@ -6,63 +6,51 @@
 
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>Guam.github.io by Guam</title>
+    <title>SirFizX Manor</title>
   </head>
 
   <body>
 
     <header>
       <div class="container">
-        <h1>Guam.github.io</h1>
-        <h2>Teaching Math with WebGL</h2>
+        <h1>Sirfizx Manor</h1>
+        <h2>Code2Learn</h2>
 
         <section id="downloads">
-          <a href="https://github.com/Guam" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+          <a href="http://sirfizx.github.io" class="btn btn-github"><span class="icon"></span>Home</a>
+          <a href="/apps/gt/" class="btn btn-github"><span class="icon"></span>Graph Theory</a>
         </section>
       </div>
     </header>
 
-    <div class="container">
-      <section id="main_content">
+<div class="container">
+<section id="main_content">
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Overview</h3>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Code2Learn</h3>
 
-<a href="Workspace.html">Workspace</a>
-
-<p>The Code2Learn methodology is a perfect example of "proof in the pudding" asserting the most valid proof of understanding lies in a practical work product.</p>
+<p>The Code2Learn methodology is synonomous with "proof in the pudding", asserting the most valid proof of understanding lies in a practical work product.</p>
 
 <p>The integration of math concepts/skills with 3d programming is a good example of the Code2Learn methodology that can be easily implemented within a customized learning framework.</p>
 
-<pre><code>var clock = new THREE.Clock();
-object3D.position.x = clock.getElapsedTime * timeScaleFactor;
-object3D.position.y = MATH.pow(clock.getElapsedTime, 2);
-</code></pre>
+<p>Conducting math labs which involve coding is a great way of developing and assessing math skills and conceptual understanding. Such math labs are easy to tier for different levels of proficiency and very extensible as you cover new concepts. Consider the following code block taken from a lesson on one dimensional scaling transformations of quadratic functions in parametric form:</p>
 
-<p></p>
+<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #cccccc">animate(){</span>
+  <span style="color: #00cd00">var</span> <span style="color: #cccccc">t</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">clock.getElapsedTime()</span> <span style="color: #3399cc">-</span><span style="color: #cd00cd">60</span><span style="color: #cccccc">;</span>
+  <span style="color: #00cd00">var</span> <span style="color: #cccccc">tSquared</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">Math</span><span style="color: #cccccc">.pow(t,</span><span style="color: #cd00cd">2</span><span style="color: #cccccc">);</span>
+  <span style="color: #cccccc">sphere.position.x</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">xScaleFactor</span> <span style="color: #3399cc">*</span> <span style="color: #cccccc">t;</span>
+  <span style="color: #cccccc">sphere.position.y</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">yScaleFactor</span> <span style="color: #3399cc">*</span> <span style="color: #cccccc">tSquared</span> <span style="color: #3399cc">+</span> <span style="color: #cccccc">k;</span>
+<span style="color: #cccccc">}</span>
+</pre></div>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>The code shown above is used to move a 3d object along a path defined by quadratic parametric equations. Time is a common parameter seen in many textbook applications of quadratic equations in parametric form.  Why not have the students apply their skills for real?   The game-like 3d environment of WebGL provides wonderfully rewarding feedback to students as they develop their skills. Below is an example of a completed lesson.</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<iframe id='frame1' src='Quadratic-Trail.html' width='800' height='512' />
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
+</div>
 
     
   </body>
