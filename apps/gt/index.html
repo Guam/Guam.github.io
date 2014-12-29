@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+ <!-- /*
+*      Copyright (C) 2014
+*      Author:  Eric Eisaman (SirFizX)
+*
+*        This software is provided as-is under GNU Version 3 License.
+*        https://www.gnu.org/licenses/gpl.html
+*        
+*/-->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Graphing App</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/pygment_trac.css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Sirfizx Manor</h1>
+        <h2>Graph Theory</h2>
+
+        <section id="downloads">
+          <a href="http://sirfizx.github.io" class="btn btn-github"><span class="icon"></span>Home</a>
+          <a href="/apps/gt/" class="btn btn-github"><span class="icon"></span>Graph Theory</a>
+        </section>
+      </div>
+    </header>
+
+
+    <div class="container">
+    <section id="main_content"><!--this section does not have closing tag-->
+
+    <h3>
+    <a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h3>
+
+    <p>Graph theory is a branch of discrete mathematics currently applied in such disciplines as psychology, law, economics, network theory, and navigation systems.</p>
+
+    <p>The following pseudo-code illustrates a recursive routine that solves for the shortest path, within a vertex-edge graph, from the designated start vertex to the designated finish vertex, using Dijkstra's algorithm.</p>
+
+    <pre><code >
+Step 1: Determine the focus vertex. (initially it's the start vertex)
+Step 2: Assign every non-completed vertex a value representing it's 
+weight, or cost, from the start vertex and the name of the last vertex
+in the path. The start vertex is assigned a value of zero. Unreachable 
+vertices are assigned a value of infinity. All other vertices are 
+assigned the minimum known edge value connecting them to the start.
+Step 3: The minimum valued non-completed vertex becomes the next focus vertex.
+Step 4: Repeat steps 2 and 3 until the finish vertex is reached.
+Step 5: The shortest path is defined by a sequence of vertex names from
+the start to the finish by going backwards through the last vertex names. 
+    </code></pre>  
+
+    <p>The following is javascript function, based upon the above pseudo-code, which solves for the shortest path, within a vertex-edge graph, from the designated start vertex to the designated finish vertex, using Dijkstra's algorithm.</p>
+
+    <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #00cd00">function</span> <span style="color: #cccccc">daSolver(){</span>
+
+    <span style="color: #cccccc">}</span>
+</pre></div>
+
+
+    <!--<p class='centeredImage'><img src='images/logo_name.png' id='logo_name' ></p>-->
+    <div id='canvas_frame' width='640' height='440'>
+        
+        <canvas id="graphCanvas" width='600' height='400'></canvas>
+        
+    </div>
+    <div id='controls'>
+        <fieldset>
+            <div id='mode'>
+                <div id='modename'>
+                    Add Vertices
+                </div>
+                <div id='usevisual' visibility='hidden'>
+                    <input type="checkbox" class="checkbox" name="usevisual" id="checkbox" />
+                    <label for="y">Use Visual Distance as Weight</label>
+                </div>
+            </div>
+            
+            <br>
+            <div class='btnset'>
+                <button id='btn_mode'>Change Mode</button>
+                <button id='btn_clear'>Clear</button>
+                <button id='btn_json'>Export JSON</button>
+                <button id='btn_png'>Export PNG</button>
+                <button id='btn_start'>Set Start</button>
+                <button id='btn_finish'>Set Finish</button>
+                <button id='btn_compute'>Compute Shortest Path</button>
+            </div>
+            
+            
+            
+        </fieldset>
+        <div id='drop'>
+                <div id="drop_zone">Drop JSON Graph Here</div>
+                <output id="list"></output>
+        </div>
+        
+    </div><!--end controls-->
+
+    </div><!--end main content-->
+
+    <script src="js/com/sirfizx/graphs/builders/utils.js"></script>
+    <script src="js/com/sirfizx/graphs/builders/ui2d.js"></script>
+    <script src="js/com/sirfizx/graphs/builders/vertex2d.js"></script>
+    <script src="js/com/sirfizx/graphs/builders/edge2d.js"></script>
+    <script src="js/com/sirfizx/graphs/builders/graph.js"></script>
+    <script src="js/com/sirfizx/graphs/builders/main.js"></script>
+    <script type="text/javascript" src="../../js/prism.js"></script>
+  </body>
+</html>
