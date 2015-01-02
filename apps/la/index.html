@@ -124,6 +124,7 @@ b = [4; 2; -1]
 <br>
 I*b
 <br>
+</br>
 This example is equivalent to solving a matrix linear algebra equation by left multiplying both sides by <span style='color:red'>A^{-1}</span> as in:
 $$
 A\overrightarrow{x}=\overrightarrow{b} 
@@ -134,6 +135,8 @@ $$
 $$
 \overrightarrow{x}=A^{-1}\overrightarrow{b} 
 $$
+
+The computation of the reduced row eschelon form, MATLAB<span style='color:red'>rref()</span>, is considerably faster that the inverse matrix based computation.  The reduced row eschelon form function used by MATLAB is performed using the Gaussian-Jordan Elimation algorithm.
 </p>
 
 
