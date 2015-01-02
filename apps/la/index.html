@@ -114,6 +114,26 @@ $$
 \left[ \begin{array}{ccc} 1 & 2 & 4\\ 1 & 4 & 5\\ 2 & 7 & 8 \end{array} \right] \left[ \begin{array}{c} x \\ y \\ z\end{array} \right]= \left[ \begin{array}{c} 4 \\ 2 \\ -1 \end{array} \right] 
 $$
 
+Now enter and execute:
+<br>
+A = [ 1 2 4 ; 1 4 5 ; 2 7 8] 
+<br>
+I = inv(A)
+<br>
+b = [4; 2; -1]
+<br>
+I*b
+<br>
+This example is equivalent to solving a matrix linear algebra equation by left multiplying both sides by <span style='color:red'>A^{-1}</span> as in:
+$$
+A\overrightarrow{x}=\overrightarrow{b} 
+$$
+$$
+A^{-1}A\overrightarrow{x}=A^{-1}\overrightarrow{b} 
+$$
+$$
+\overrightarrow{x}=A^{-1}\overrightarrow{b} 
+$$
 </p>
 
 
