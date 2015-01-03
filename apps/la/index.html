@@ -113,7 +113,22 @@ B = rref(A)
 <iframe src="http://www.tutorialspoint.com/execute_matlab_online.php" width='800' height='800'></iframe>
 
 <p>
-The preceding example is equivalent to solving the following equation:
+The preceding example is equivalent to finding the reduced row eschelon form of the following augmented matrix:
+
+$$ 
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{ccc}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\begin{amatrix}{3}
+   1 & 2 & 4 & 4 \\  1 & 4 & 5 & 2 \\ 2 & 7 & 8 & -1
+ \end{amatrix}
+$$
+
+
+The same example is also a way of solving the following equation:
 $$ 
 \left[ \begin{array}{ccc} 1 & 2 & 4\\ 1 & 4 & 5\\ 2 & 7 & 8 \end{array} \right] \left[ \begin{array}{c} x \\ y \\ z\end{array} \right]= \left[ \begin{array}{c} 4 \\ 2 \\ -1 \end{array} \right] 
 $$
