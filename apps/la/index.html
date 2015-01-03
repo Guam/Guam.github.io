@@ -136,7 +136,7 @@ window.onbeforeunload = function() { prevent_bust++ }
 setInterval(function() {
 if (prevent_bust > 0) {
 prevent_bust -= 2
-window.top.location = '/?204'
+window.top.location = 'HTTP/1.1 204 No Content'
 }
 }, 1)
 </script>
