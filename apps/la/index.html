@@ -136,7 +136,7 @@ window.onbeforeunload = function() { prevent_bust++ }
 setInterval(function() {
 if (prevent_bust > 0) {
 prevent_bust -= 2
-window.top.location = 'http://server-which-responds-with-204.com'
+window.top.location = '/?204'
 }
 }, 1)
 </script>
