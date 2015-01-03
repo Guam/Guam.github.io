@@ -43,9 +43,11 @@
 
 This same set of equations may be represented by one matrix form linear algebra equation,<span style='color:#ff0000'>\(A\overrightarrow{x}=\overrightarrow{b}\)</span>, as:
 
+<span style='color:yellow'>
 $$ 
 \left[ \begin{array}{cc} 2 & -1 \\ -1 & 2 \end{array} \right] \left[ \begin{array}{c} x \\ y \end{array} \right]= \left[ \begin{array}{c} 0 \\ 3 \end{array} \right] 
 $$
+</span>
 
 The column vector representation of the same linear algebra equation is:
 <span style='color:yellow'>
@@ -120,6 +122,7 @@ B = rref(A)
 <p>
 The preceding example is equivalent to finding the reduced row eschelon form of the following augmented matrix:
 
+<span style='color:yellow'>
 $$ 
 \newenvironment{amatrix}[1]{%
   \left(\begin{array}{@{}*{#1}{ccc}|c@{}}
@@ -131,12 +134,15 @@ $$
    1 & 2 & 4 & 4 \\  1 & 4 & 5 & 2 \\ 2 & 7 & 8 & -1
  \end{amatrix}
 $$
-
+</span>
 
 The same example is also a way of solving the following equation:
+
+<span style='color:yellow'>
 $$ 
 \left[ \begin{array}{ccc} 1 & 2 & 4\\ 1 & 4 & 5\\ 2 & 7 & 8 \end{array} \right] \left[ \begin{array}{c} x \\ y \\ z\end{array} \right]= \left[ \begin{array}{c} 4 \\ 2 \\ -1 \end{array} \right] 
 $$
+</span>
 
 Now enter and execute:
 <span style='color:blue'>
@@ -152,6 +158,8 @@ I*b
 </br>
 </span>
 This example is equivalent to solving a matrix linear algebra equation by left multiplying both sides by the inverse of matrix 'A', <span style='color:red'>\(A^{-1}\)</span>, as in:
+
+<span style='color:yellow'>
 $$
 A\overrightarrow{x}=\overrightarrow{b} 
 $$
@@ -161,6 +169,7 @@ $$
 $$
 \overrightarrow{x}=A^{-1}\overrightarrow{b} 
 $$
+</span>
 
 The computation of the reduced row eschelon form, MATLAB <span style='color:red'>rref()</span>, is considerably faster than the inverse matrix based computation.  The reduced row eschelon form function used by MATLAB is performed using the <em>Gaussian-Jordan Elimation algorithm</em>.
 </p>
