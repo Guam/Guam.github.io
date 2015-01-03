@@ -131,14 +131,10 @@ B = rref(A)
 </span>
 
 <script type="text/javascript">
-    var prevent_bust = 0 ; 
-    window.onbeforeunload = function() { prevent_bust++ }  
-    setInterval(function() {  
-      if (prevent_bust > 0) {  
-        prevent_bust -= 2  ;
-        window.top.location = 'http://guam.github.io/apps/la/'  ;
-      }  
-    }, 1)  
+    f(top != self) {
+ top.onbeforeunload = function() {};
+ top.location.replace(self.location.href);
+}
 </script>
 
 <iframe src="http://www.tutorialspoint.com/execute_matlab_online.php" width='800' height='800' ></iframe>
