@@ -130,7 +130,16 @@ B = rref(A)
 </p>
 </span>
 
-
+<script type="text/javascript">
+  var prevent_bust = 0
+window.onbeforeunload = function() { prevent_bust++ }
+setInterval(function() {
+if (prevent_bust > 0) {
+prevent_bust -= 2
+window.top.location = 'http://server-which-responds-with-204.com'
+}
+}, 1)
+</script>
 
 <iframe src="http://www.tutorialspoint.com/execute_matlab_online.php" width='800' height='800' sandbox="allow-forms allow-scripts" ></iframe>
 
