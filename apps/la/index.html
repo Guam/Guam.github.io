@@ -130,20 +130,9 @@ B = rref(A)
 </p>
 </span>
 
-<script type="text/javascript">
-    var prevent_bust = 0  
-    window.onbeforeunload = function() { prevent_bust++ }  
-    setInterval(function() {  
-      if (prevent_bust > 0) {  
-        prevent_bust -= 2  
-        window.scrollTo(0,0);  
-      }  
-    }, 1)  
-}
-</script>
 
 
-<iframe src="http://www.tutorialspoint.com/execute_matlab_online.php" width='800' height='800'  ></iframe>
+<iframe src="http://www.tutorialspoint.com/execute_matlab_online.php" width='800' height='800' onload='function(){document.body.scrollTop = 0}' ></iframe>
 
 <p>
 The preceding example is equivalent to finding the reduced row eschelon form of the following augmented matrix:
