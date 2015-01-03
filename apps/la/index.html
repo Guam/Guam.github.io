@@ -130,9 +130,24 @@ B = rref(A)
 </p>
 </span>
 
-
-
-<iframe src="http://www.tutorialspoint.com/execute_matlab_online.php" width='800' height='800' style='display:block'} ></iframe>
+<button id='btn_mtlb' class="btn btn-github" style="background-color:#ff69b4">
+Show Octave MATLAB
+</button>
+<iframe id='mtlb' src="http://www.tutorialspoint.com/execute_matlab_online.php" width='800' height='800' style='display:none'} ></iframe>
+<script type="text/javascript">
+  var btn_mtlb = document.getElementById('btn_mtlb');
+  var mtlb = document.getElementById('mtlb');
+  btn_mtlb.onclick = function(){
+    if(btn_mtlb.innerHTML =='Show Octave MATLAB'){
+      mtlb.style.display = 'block';
+      btn_mtlb.innerHTML = 'Hide Octave MATLAB';
+    }else{
+      mtlb.style.display = 'none';
+      btn_mtlb.innerHTML = 'Show Octave MATLAB';
+    }
+  }
+  btn_mtlb.click();
+</script>
 
 <p>
 The preceding example is equivalent to finding the reduced row eschelon form of the following augmented matrix:
