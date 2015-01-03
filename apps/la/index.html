@@ -131,16 +131,14 @@ B = rref(A)
 </span>
 
 <script type="text/javascript">
-    // var prevent_bust = 0  
-    // window.onbeforeunload = function() { prevent_bust++ }  
-    // setInterval(function() {  
-    //   if (prevent_bust > 0) {  
-    //     prevent_bust -= 2  
-    //     window.top.location = '#top'  
-    //   }  
-    // }, 1)  
-window.onbeforeunload = function(){
-  window.scrollTo(0,0);
+    var prevent_bust = 0  
+    window.onbeforeunload = function() { prevent_bust++ }  
+    setInterval(function() {  
+      if (prevent_bust > 0) {  
+        prevent_bust -= 2  
+        window.scrollTo(0,0);  
+      }  
+    }, 1)  
 }
 </script>
 
