@@ -51,7 +51,7 @@ First, the short answer: "<em>Because linear algebra enables easy conceptualizat
  var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-10, 10, 10, -10], axis:true});
  var li = board.create('line',[[0,0],[2,4]], {strokeColor:'#00ff00',strokeWidth:2});
  var li2 = board.create('line',[[0,1.5],[1,2]], {strokeColor:'#0000ff',strokeWidth:2});
- p1 = board.create('point',[1,2]);
+ p1 = board.create('point',[1,2],{name:''});
 </script>
 
 This same set of equations may be represented by one matrix form linear algebra equation, <span style='color:#ff0000'>\(A\overrightarrow{x}=\overrightarrow{b}\)</span>, as:
