@@ -7,9 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../../stylesheets/pygment_trac.css" media="screen" />
 
-    <script type="text/javascript"src="js/game.js"></script>
-    <script type="text/javascript"src="js/rect.js"></script>
-    <script type="text/javascript"src="js/circ.js"></script>
+    <script type="text/javascript"src="js/helper.js"></script>
 
     <title>SirFizX Newton's Universal Law of Gravitation</title>
   </head>
@@ -64,7 +62,7 @@ $$ P_{y}=P_{y-initial} + V_{y}\Delta t $$
 Recursive modeling based upon this equation set is known as '<span style='color:red'><em>Simplectic Euler Integration</em></span>'.
 </p>
 
-<canvas id='sim' width='800' height='600'></canvas>
+<canvas id='euler' width='800' height='600'></canvas>
 
 </section>
 
@@ -75,65 +73,12 @@ Recursive modeling based upon this equation set is known as '<span style='color:
 </script>
 
 <script type="text/javascript">
-
-Game.initialize(800,600);
-// Add some moving rectangles
-var i = 1;
-while (i--) Game.addCirc();
-      
-Game.run = (function() {
-  var loops = 0, skipTicks = 1000 / Game.fps,
-  maxFrameSkip = 10,
-  nextGameTick = (new Date).getTime();
-
-  return function() {
-    loops = 0;
-
-    while ((new Date).getTime() > nextGameTick) {
-      var dt = (new Date().getTime()-nextGameTick)/1000;
-      console.log(dt);
-      Game.update(dt);
-      nextGameTick += skipTicks;
-      loops++;
+new OneBody('euler', {
+    body: {}, // the simulated body
+    step: function(center, body){
+        // stepping here
     }
-
-    if (!loops) {
-      Game.draw((nextGameTick - (new Date).getTime()) / skipTicks);
-    } else {
-      Game.draw(0);
-    }
-  };
-
-})();
-      
-(function() {
-  var onEachFrame;
-  if (window.webkitRequestAnimationFrame) {
-    onEachFrame = function(cb) {
-      var _cb = function() { cb(); webkitRequestAnimationFrame(_cb); }
-            _cb();
-          };
-  } else if (window.mozRequestAnimationFrame) {
-    onEachFrame = function(cb) {
-      var _cb = function() { cb(); mozRequestAnimationFrame(_cb); }
-            _cb();
-          };
-  } else if (window.requestAnimationFrame) {
-    onEachFrame = function(cb) {
-      var _cb = function() { cb(); requestAnimationFrame(_cb); }
-            _cb();
-          };
-  } else {
-    onEachFrame = function(cb) {
-      setInterval(cb, 1000 / 60);
-          }
-  }
-        
-  window.onEachFrame = onEachFrame;
-})();
-
-window.onEachFrame(Game.run);
-    
+});
 
 </script>
     
