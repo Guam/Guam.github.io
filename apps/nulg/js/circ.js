@@ -20,7 +20,7 @@ Circ.prototype.update = function(dt) {
     this.velocity = 1;
   } else if (this.y > 570) {
     this.y = 570;
-    this.velocity = -100;
+    this.velocity = -500;
   }
   this.velocity += 10*dt;
   this.y += this.velocity*dt;
