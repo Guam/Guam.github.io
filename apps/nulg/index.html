@@ -110,6 +110,11 @@ Game.run = (function() {
       var _cb = function() { cb(); mozRequestAnimationFrame(_cb); }
             _cb();
           };
+  } else if (window.requestAnimationFrame) {
+    onEachFrame = function(cb) {
+      var _cb = function() { cb(); requestAnimationFrame(_cb); }
+            _cb();
+          };
   } else {
     onEachFrame = function(cb) {
       setInterval(cb, 1000 / 60);
