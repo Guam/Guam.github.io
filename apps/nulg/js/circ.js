@@ -22,7 +22,7 @@ Circ.prototype.update = function(dt) {
     this.y = 570;
     this.velocity = -100;
   }
-  this.velocity += 0.1*dt;
+  this.velocity += 10*dt;
   this.y += this.velocity*dt;
   console.log('v:'+this.velocity+' y:'+this.y);
 };
