@@ -64,7 +64,7 @@ $$ P_{y}=P_{y-initial} + V_{y}\Delta t $$
 Recursive modeling based upon this equation set is known as '<span style='color:red'><em>Simplectic Euler Integration</em></span>'.
 </p>
 
-<canvas id='sim' width='640' height='480'></canvas>
+<canvas id='sim' width='800' height='600'></canvas>
 
 </section>
 
@@ -76,7 +76,7 @@ Recursive modeling based upon this equation set is known as '<span style='color:
 
 <script type="text/javascript">
 
-Game.initialize();
+Game.initialize(800,600);
 // Add some moving rectangles
 var i = 400;
 while (i--) Game.addCirc();

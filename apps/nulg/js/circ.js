@@ -1,6 +1,6 @@
-function Circ() {
-  this.x = Math.floor(Math.random() * (640 - 30));;
-  this.y = Math.floor(Math.random() * (480 - 30));;
+function Circ(w,h) {
+  this.x = Math.floor(Math.random() * (w - 30));;
+  this.y = Math.floor(Math.random() * (h - 30));;
   this.velocity = Math.random() > 0.5 ? -1 : 1;
 };
 
@@ -17,7 +17,7 @@ Circ.prototype.draw = function(context) {
 Circ.prototype.update = function() {
   if (this.y < 0) {
     this.velocity = 1;
-  } else if (this.y > 450) {
+  } else if (this.y > 570) {
     this.velocity = -1;
   }
   
