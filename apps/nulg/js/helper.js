@@ -163,7 +163,7 @@ var copy = function(){
 var OneBody = function(name, obj){
     obj.body.copy = copy;
     var body = obj.body.copy();
-    var center = new Vec(400, 360);
+    var center = new Vec(400, 160);
 
     var simulation = new Simulation(name, {
         init: function(context){
