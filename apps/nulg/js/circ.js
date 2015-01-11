@@ -16,8 +16,10 @@ Circ.prototype.draw = function(context) {
 
 Circ.prototype.update = function(dt) {
   if (this.y < 0) {
+    this.y = 0;
     this.velocity = 1;
   } else if (this.y > 570) {
+    this.y = 570;
     this.velocity = -1;
   }
   this.velocity += 0.3*dt;
