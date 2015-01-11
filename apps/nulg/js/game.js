@@ -24,3 +24,7 @@ Game.update = function() {
 Game.addRect = function() {
   Game.entities.push(new Rect());
 };
+
+Game.addCirc = function() {
+  Game.entities.push(new Circ());
+};
