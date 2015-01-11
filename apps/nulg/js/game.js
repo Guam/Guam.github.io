@@ -17,9 +17,9 @@ Game.draw = function() {
   }
 };
 
-Game.update = function() {
+Game.update = function(dt) {
   for (var i=0; i < this.entities.length; i++) {
-    this.entities[i].update();
+    this.entities[i].update(dt);
   }
 };
 

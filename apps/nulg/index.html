@@ -90,8 +90,9 @@ Game.run = (function() {
     loops = 0;
 
     while ((new Date).getTime() > nextGameTick) {
-      console.log(new Date().getTime()-nextGameTick);
-      Game.update();
+      var dt = new Date().getTime()-nextGameTick;
+      console.log(dt);
+      Game.update(dt);
       nextGameTick += skipTicks;
       loops++;
     }

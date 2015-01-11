@@ -14,12 +14,12 @@ Circ.prototype.draw = function(context) {
   context.stroke();
 };
 
-Circ.prototype.update = function() {
+Circ.prototype.update = function(dt) {
   if (this.y < 0) {
-    this.velocity = 1;
+    this.velocity = 3;
   } else if (this.y > 570) {
-    this.velocity = -1;
+    this.velocity = -3;
   }
-  
+  this.velocity += dt;
   this.y += this.velocity;
 };
