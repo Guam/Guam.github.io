@@ -169,7 +169,7 @@ var OneBody = function(name, obj){
         init: function(context){
             body = obj.body.copy();
             context.dot(center, 5);
-            context.dot(obj.body.position, 1);
+            context.dot(obj.body.position, 10);
         },
         step: function(context){
             var previous = body.copy();
