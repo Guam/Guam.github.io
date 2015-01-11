@@ -98,7 +98,7 @@ Game.run = (function() {
     //console.log('Number of Loops:'+loops);
 
     if (!loops) {
-      console.log('Game.draw('+(nextGameTick - (new Date).getTime()) / skipTicks)+')');
+      console.log('Game.draw('+(nextGameTick - new Date().getTime()) / skipTicks+')');
       Game.draw((nextGameTick - (new Date).getTime()) / skipTicks);
     } else {
       //console.log('Game.draw(zero)');
