@@ -13,7 +13,7 @@ Game.draw = function() {
   this.context.clearRect(0, 0, this.width, this.height);
   
   for (var i=0; i < this.entities.length; i++) {
-    this.entities[i].draw(this.context);
+    this.entities[i].draw(this.context,dt);
   }
 };
 

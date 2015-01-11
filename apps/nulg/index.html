@@ -90,18 +90,15 @@ Game.run = (function() {
     loops = 0;
 
     while ((new Date).getTime() > nextGameTick) {
+      console.log(new Date().getTime()-nextGameTick);
       Game.update();
       nextGameTick += skipTicks;
       loops++;
     }
 
-    //console.log('Number of Loops:'+loops);
-
     if (!loops) {
-      console.log('Game.draw('+(nextGameTick - new Date().getTime()) / skipTicks+')');
       Game.draw((nextGameTick - (new Date).getTime()) / skipTicks);
     } else {
-      //console.log('Game.draw(zero)');
       Game.draw(0);
     }
   };
