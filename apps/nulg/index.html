@@ -44,7 +44,17 @@
 <a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Recursive Approach to Modeling</h3>
 
 <p>
-A computer based simulation will usually use a recursive approach to modeling physics.  That is to say that the computer repeats a series of steps, which acts on the current state variable or set of variables, where each repetition, hereafter referred to as '<span style='color:red'><em>iteration</em>'</span>.  In other words, the output of one iteration becomes the input for the next iteration.
+A computer based simulation will usually use a recursive approach to modeling physics.  That is to say that the computer repeats a series of steps, which acts on the current state of a variable or set of variables, where each repetition is referred to as an '<span style='color:red'><em>iteration</em>'</span>.  In other words, the output of one iteration becomes the input for the next iteration.
+</p>
+
+<p>
+The best way to learn about the recursive approach to modeling is by example. Consider a ball being thrown horizontally from a height of 500 meters with an initial velocity of 10 m/s. Neglecting frictional effects we can model this situation based on the following equations:
+$$ V_{x}=constant $$
+$$ V_{y}=V_{y-initial}+A\delta t $$
+$$ P_{x}=P_{x-initial}+V_{x} \delta t $$
+$$ P_{y}=P_{y-initial} + V_{y}\delta t $$
+
+
 </p>
 
 </section>
