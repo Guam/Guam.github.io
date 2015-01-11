@@ -74,11 +74,19 @@ Recursive modeling based upon this equation set is known as '<span style='color:
 
 <script type="text/javascript">
 
-new OneBody('euler', {
-    body: {}, // the simulated body
-    step: function(center, body){
-        // stepping here
-    }
+
+    new OneBody('euler', {
+        body: {
+            position: new Vec(70, 60),
+            velocity: new Vec(0, 1)
+        },
+        step: function(center, body){
+            var acc = acceleration(center, body.position);
+            body.velocity.iadd(acc);
+            body.position.iadd(body.velocity);
+        }
+    });
+
 });
 
 </script>
