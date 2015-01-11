@@ -94,7 +94,11 @@ Game.run = (function() {
       nextGameTick += skipTicks;
       loops++;
     }
-    Game.draw();
+    if (!loops) {
+      Game.draw((nextGameTick - (new Date).getTime()) / skipTicks);
+    } else {
+      Game.draw(0);
+    }
   };
 
 })();
