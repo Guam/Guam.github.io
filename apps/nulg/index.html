@@ -95,13 +95,13 @@ Game.run = (function() {
       loops++;
     }
 
-    console.log('Number of Loops:'+loops);
+    //console.log('Number of Loops:'+loops);
 
     if (!loops) {
-      console.log('Game.draw(nonzero)');
+      console.log('Game.draw('+nextGameTick - (new Date).getTime()) / skipTicks+')');
       Game.draw((nextGameTick - (new Date).getTime()) / skipTicks);
     } else {
-      console.log('Game.draw(zero)');
+      //console.log('Game.draw(zero)');
       Game.draw(0);
     }
   };
