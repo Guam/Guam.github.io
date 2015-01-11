@@ -1,6 +1,6 @@
 var Game = {};
 
-Game.fps = 50;
+Game.fps = 30;
 
 Game.initialize = function(width,height) {
   this.entities = [];
