@@ -64,19 +64,20 @@ Note how the computation of acceleration in the above code ignores masses comple
 </p>
 
 <p>
-Below is the javascript code defining the planet object in the following simulation.  This particular simulation uses the type of computational integration known as '<span style='color:red'><em>Euler Integration</em></span>'. The 'center' referred to below is the system's center of mass which is set at the star location due to the presumption that the star's mass is very greatly larger than the planet's mass.
+Below is the javascript code defining the planet object in the following simulation.  This particular simulation uses the type of computational integration known as '<span style='color:red'><em>Euler Integration</em></span>'. 
 <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #cccccc">new</span> <span style="color: #cccccc">OneBody(</span><span style="color: #cd0000">&#39;euler&#39;</span><span style="color: #cccccc">,</span> <span style="color: #cccccc">{</span>
         <span style="color: #cccccc">body:</span> <span style="color: #cccccc">{</span>
             <span style="color: #cccccc">position:</span> <span style="color: #cccccc">new</span> <span style="color: #cccccc">Vec(</span><span style="color: #cd00cd">70</span><span style="color: #cccccc">,</span> <span style="color: #cd00cd">360</span><span style="color: #cccccc">),</span>
             <span style="color: #cccccc">velocity:</span> <span style="color: #cccccc">new</span> <span style="color: #cccccc">Vec(</span><span style="color: #cd00cd">50</span><span style="color: #cccccc">,</span> <span style="color: #cd00cd">180</span><span style="color: #cccccc">)</span>
         <span style="color: #cccccc">},</span>
         <span style="color: #cccccc">step:</span> <span style="color: #cccccc">function(</span> <span style="color: #cccccc">star,</span> <span style="color: #cccccc">body,</span> <span style="color: #cccccc">deltaTime){</span>
-            <span style="color: #cccccc">var</span> <span style="color: #cccccc">acc</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">acceleration(</span> <span style="color: #cccccc">star,</span> <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position);</span>
+            <span style="color: #cccccc">var</span> <span style="color: #cccccc">acc</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">acceleration(</span> <span style="color: #cccccc">star</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position</span> <span style="color: #cccccc">,</span> <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position);</span>
             <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">velocity</span><span style="color: #3399cc">.</span><span style="color: #cccccc">iadd(acc</span><span style="color: #3399cc">.</span><span style="color: #cccccc">mul(deltaTime));</span>
             <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position</span><span style="color: #3399cc">.</span><span style="color: #cccccc">iadd(body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">velocity</span><span style="color: #3399cc">.</span><span style="color: #cccccc">mul(deltaTime));</span>
         <span style="color: #cccccc">}</span>
     <span style="color: #cccccc">});</span>
 </pre></div>
+
 
 
 
