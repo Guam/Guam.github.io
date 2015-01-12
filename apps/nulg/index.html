@@ -104,7 +104,8 @@ Hover your mouse over the following canvas to run this '<span style='color:red'>
             position: new Vec(70, 200),
             velocity: new Vec(0.2, 0.8)
         },
-        step: function(center, body){
+        step: function(center, body, delta){
+            console.log(delta);
             var acc = acceleration(center, body.position);
             body.velocity.iadd(acc);
             body.position.iadd(body.velocity);

@@ -171,9 +171,9 @@ var OneBody = function(name, obj){
             context.dot(center, 5);
             context.dot(obj.body.position, 1);
         },
-        step: function(context){
+        step: function(context,delta){
             var previous = body.copy();
-            obj.step(center, body);
+            obj.step(center, body, delta);
             context.line(previous.position, body.position);
         }
     });
