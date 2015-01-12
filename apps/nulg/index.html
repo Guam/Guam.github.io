@@ -106,8 +106,8 @@ Hover your mouse over the following canvas to run this '<span style='color:red'>
         },
         step: function(center, body, deltaTime){
             var acc = acceleration(center, body.position);
-            body.velocity.iadd(acc.imul(deltaTime));
-            body.position.iadd(body.velocity.imul(deltaTime));
+            body.velocity.iadd(acc.mul(deltaTime));
+            body.position.iadd(body.velocity.mul(deltaTime));
         }
     });
 
