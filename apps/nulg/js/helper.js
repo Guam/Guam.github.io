@@ -117,9 +117,9 @@ var Simulation = function(id, obj){
                         last_time = (new Date().getTime());
                         interval = setInterval(function(){
                             var current_time = (new Date()).getTime();
-                            var delta = current_time - last_time;
+                            var deltaTime = current_time - last_time;
                             last_time = current_time;
-                            obj.step(context, delta);
+                            obj.step(context, deltaTime);
                         }, 40);
                     }
                 },
@@ -139,7 +139,7 @@ var Simulation = function(id, obj){
     });
 }
 
-var G = 1500.0;
+var G = 45.0;
 var acceleration = function(a, b){
     var direction = a.sub(b);
     var length = direction.length();
