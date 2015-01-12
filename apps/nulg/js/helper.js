@@ -175,7 +175,7 @@ var OneBody = function(name, obj){
             var previous = body.copy();
             obj.step(center, body, deltaTime);
             context.line(previous.position, body.position);
-            console.log(previous.position +' '+ body.position);
+            console.log(previous.position.x +' '+ body.position.x);
         }
     });
 };
