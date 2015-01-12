@@ -61,12 +61,29 @@ The best way to learn about the recursive approach to modeling is by example. Co
 
 Note how the computation of acceleration in the above code ignores masses completely.
 
+</p>
+
+<p>
+Below is the javascript code defining the planet object in the following simulation.  This particular simulation uses the type of computational integration known as '<span style='color:red'><em>Euler Integration</em></span>'. 
+<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #cccccc">new</span> <span style="color: #cccccc">OneBody(</span><span style="color: #cd0000">&#39;euler&#39;</span><span style="color: #cccccc">,</span> <span style="color: #cccccc">{</span>
+        <span style="color: #cccccc">body:</span> <span style="color: #cccccc">{</span>
+            <span style="color: #cccccc">position:</span> <span style="color: #cccccc">new</span> <span style="color: #cccccc">Vec(</span><span style="color: #cd00cd">70</span><span style="color: #cccccc">,</span> <span style="color: #cd00cd">200</span><span style="color: #cccccc">),</span>
+            <span style="color: #cccccc">velocity:</span> <span style="color: #cccccc">new</span> <span style="color: #cccccc">Vec(</span><span style="color: #cd00cd">0.2</span><span style="color: #cccccc">,</span> <span style="color: #cd00cd">0.8</span><span style="color: #cccccc">)</span>
+        <span style="color: #cccccc">},</span>
+        <span style="color: #cccccc">step:</span> <span style="color: #cccccc">function(center,</span> <span style="color: #cccccc">body){</span>
+            <span style="color: #cccccc">var</span> <span style="color: #cccccc">acc</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">acceleration(center,</span> <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position);</span>
+            <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">velocity</span><span style="color: #3399cc">.</span><span style="color: #cccccc">iadd(acc);</span>
+            <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position</span><span style="color: #3399cc">.</span><span style="color: #cccccc">iadd(body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">velocity);</span>
+        <span style="color: #cccccc">}</span>
+    <span style="color: #cccccc">});</span>
+</pre></div>
+
 
 
 </p>
 
 <p>
-Recursive modeling based upon this equation set is known as '<span style='color:red'><em>Euler Integration</em></span>'.
+Hover your mouse over the following canvas to run this '<span style='color:red'><em>Euler Integration</em></span>' based simulation.
 </p>
 
 <canvas id='euler' width='800' height='300'></canvas>
