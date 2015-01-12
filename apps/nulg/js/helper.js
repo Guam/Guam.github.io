@@ -117,7 +117,7 @@ var Simulation = function(id, obj){
                         last_time = (new Date().getTime());
                         interval = setInterval(function(){
                             var current_time = (new Date()).getTime();
-                            var deltaTime = current_time - last_time;
+                            var deltaTime = (current_time - last_time)/1000;
                             last_time = current_time;
                             obj.step(context, deltaTime);
                         }, 40);
@@ -171,9 +171,9 @@ var OneBody = function(name, obj){
             context.dot(center, 5);
             context.dot(obj.body.position, 1);
         },
-        step: function(context,delta){
+        step: function(context,deltaTime){
             var previous = body.copy();
-            obj.step(center, body, delta);
+            obj.step(center, body, deltaTime);
             context.line(previous.position, body.position);
         }
     });
