@@ -70,13 +70,14 @@ Below is the javascript code defining the planet object in the following simulat
             <span style="color: #cccccc">position:</span> <span style="color: #cccccc">new</span> <span style="color: #cccccc">Vec(</span><span style="color: #cd00cd">70</span><span style="color: #cccccc">,</span> <span style="color: #cd00cd">360</span><span style="color: #cccccc">),</span>
             <span style="color: #cccccc">velocity:</span> <span style="color: #cccccc">new</span> <span style="color: #cccccc">Vec(</span><span style="color: #cd00cd">50</span><span style="color: #cccccc">,</span> <span style="color: #cd00cd">180</span><span style="color: #cccccc">)</span>
         <span style="color: #cccccc">},</span>
-        <span style="color: #cccccc">step:</span> <span style="color: #cccccc">function(center,</span> <span style="color: #cccccc">body,</span> <span style="color: #cccccc">deltaTime){</span>
-            <span style="color: #cccccc">var</span> <span style="color: #cccccc">acc</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">acceleration(center,</span> <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position);</span>
+        <span style="color: #cccccc">step:</span> <span style="color: #cccccc">function(</span> <span style="color: #cccccc">star,</span> <span style="color: #cccccc">body,</span> <span style="color: #cccccc">deltaTime){</span>
+            <span style="color: #cccccc">var</span> <span style="color: #cccccc">acc</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">acceleration(</span> <span style="color: #cccccc">star,</span> <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position);</span>
             <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">velocity</span><span style="color: #3399cc">.</span><span style="color: #cccccc">iadd(acc</span><span style="color: #3399cc">.</span><span style="color: #cccccc">mul(deltaTime));</span>
             <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position</span><span style="color: #3399cc">.</span><span style="color: #cccccc">iadd(body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">velocity</span><span style="color: #3399cc">.</span><span style="color: #cccccc">mul(deltaTime));</span>
         <span style="color: #cccccc">}</span>
     <span style="color: #cccccc">});</span>
 </pre></div>
+
 
 
 
