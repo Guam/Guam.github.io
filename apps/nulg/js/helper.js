@@ -139,7 +139,7 @@ var Simulation = function(id, obj){
     });
 }
 
-var G = 45.0;
+var G = 1500.0;
 var acceleration = function(a, b){
     var direction = a.sub(b);
     var length = direction.length();
