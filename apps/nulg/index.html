@@ -49,13 +49,20 @@ A computer based simulation will usually use a recursive approach to modeling ph
 </p>
 
 <p>
-The best way to learn about the recursive approach to modeling is by example. Consider a ball being thrown horizontally from a height of 500 meters with an initial velocity of 10 m/s. Neglecting frictional effects we can model this situation based on the following equations:
-<span style='color:#ff69b4'>
-$$ V_{x}=constant $$
-$$ V_{y}=V_{y-initial}+A\Delta t $$
-$$ P_{x}=P_{x-initial}+V_{x} \Delta t $$
-$$ P_{y}=P_{y-initial} + V_{y}\Delta t $$
-</span>
+The best way to learn about the recursive approach to modeling is by example. Consider a planet orbiting a very massive star, such as our Sun. The code in the following simulation is simplified in that it neglects movement of the star, presuming it to be negligible due to it's relative mass.
+<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #cccccc">var</span> <span style="color: #cccccc">G</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">1500.0</span><span style="color: #cccccc">;</span>
+<span style="color: #cccccc">var</span> <span style="color: #cccccc">acceleration</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">function(pos1,</span> <span style="color: #cccccc">pos2){</span>
+    <span style="color: #cccccc">var</span> <span style="color: #cccccc">direction</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">pos1</span><span style="color: #3399cc">.</span><span style="color: #cccccc">sub(pos2);</span>
+    <span style="color: #cccccc">var</span> <span style="color: #cccccc">length</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">direction</span><span style="color: #3399cc">.</span><span style="color: #cccccc">length();</span>
+    <span style="color: #cccccc">var</span> <span style="color: #cccccc">normal</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">direction</span><span style="color: #3399cc">.</span><span style="color: #cccccc">normalized();</span>
+    <span style="color: #cdcd00">return</span> <span style="color: #cccccc">normal</span><span style="color: #3399cc">.</span><span style="color: #cccccc">mul(G</span><span style="color: #3399cc">/</span><span style="color: #cccccc">Math</span><span style="color: #3399cc">.</span><span style="color: #cccccc">pow(length,</span> <span style="color: #cd00cd">2</span><span style="color: #cccccc">));</span>
+<span style="color: #cccccc">};</span>
+</pre></div>
+
+Note how the computation of acceleration in the above code ignores masses completely.
+
+
+
 </p>
 
 <p>
