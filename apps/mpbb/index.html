@@ -33,89 +33,32 @@
 
 <section id="intro">
 <h3>
-<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Gravitational Force</h3>
+<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Basic Game Structure</h3>
 
 <p>
-\( F_{\textit{gravity}} = G \frac{m_1 m_2}{r^2} \)  
+<!--\( F_{\textit{gravity}} = G \frac{m_1 m_2}{r^2} \)-->
+<img src='https://d7f941bb4c5b91f25a575826f1e833d3fbf0ed6c.googledrive.com/host/0B2HWObLQ8xO5MmpqOWRoSHQ1WDA' />  
 </p>
 
 </section>
 
 <section id="recursive">
 <h3>
-<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Simulation of Gravity</h3>
+<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Echo Servers</h3>
 
 <p>
-A computer based simulation will usually use a recursive approach to modeling physics.  That is to say that the computer repeats a series of steps, which acts on the current state of a variable or set of variables, where each repetition or time through the loop is referred to as an '<span style='color:red'><em>iteration</em>'</span>.  In other words, the output of one iteration becomes the input for the next iteration. Or, more simply, certain variable values get updated each iteration.
+IMHO, the simplest approach to developing a multiplayer game is by implementing an '<span style='color:red'><em>ECHO SERVER</em>'</span>.  As the name suggests, an echo server broadcasts exactly what it receives.
 </p>
 
 <p>
-The best way to learn about the recursive approach to modeling is by example. Consider a planet orbiting a very massive star, such as our Sun. The code in the following simulation is simplified in that it neglects movement of the star, presuming it to be negligible due to it's relative mass. Also notice that the universal gravitational constant is not accurate, but instead set to that value to quickly get a stable orbit which rendered nicely within the canvas. A nice exercise would be to adjust the model so that an accurate gravitational constant could be used and still get a stable orbit which renders nicely within the canvas.
-<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #cccccc">var</span> <span style="color: #cccccc">G</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">15000000.0</span><span style="color: #cccccc">;</span>
-<span style="color: #cccccc">var</span> <span style="color: #cccccc">acceleration</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">function(pos1,</span> <span style="color: #cccccc">pos2){</span>
-    <span style="color: #cccccc">var</span> <span style="color: #cccccc">direction</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">pos1</span><span style="color: #3399cc">.</span><span style="color: #cccccc">sub(pos2);</span>
-    <span style="color: #cccccc">var</span> <span style="color: #cccccc">length</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">direction</span><span style="color: #3399cc">.</span><span style="color: #cccccc">length();</span>
-    <span style="color: #cccccc">var</span> <span style="color: #cccccc">normal</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">direction</span><span style="color: #3399cc">.</span><span style="color: #cccccc">normalized();</span>
-    <span style="color: #cdcd00">return</span> <span style="color: #cccccc">normal</span><span style="color: #3399cc">.</span><span style="color: #cccccc">mul(G</span><span style="color: #3399cc">/</span><span style="color: #cccccc">Math</span><span style="color: #3399cc">.</span><span style="color: #cccccc">pow(length,</span> <span style="color: #cd00cd">2</span><span style="color: #cccccc">));</span>
-<span style="color: #cccccc">};</span>
-</pre></div>
-
-Note how the computation of acceleration in the above code ignores masses completely.
-
+My first experience with echo servers was through<a href="https://www.youtube.com/watch?v=pNKNYLv2BpQ">a great Node.js video tutorial by Smitha Milli</a> .
 </p>
-
-<p>
-Below is the javascript code defining the planet object in the following simulation.  This particular simulation uses the type of computational integration known as '<span style='color:red'><em>Euler Integration</em></span>'. 
-<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #cccccc">new</span> <span style="color: #cccccc">OneBody(</span><span style="color: #cd0000">&#39;euler&#39;</span><span style="color: #cccccc">,</span> <span style="color: #cccccc">{</span>
-        <span style="color: #cccccc">body:</span> <span style="color: #cccccc">{</span>
-            <span style="color: #cccccc">position:</span> <span style="color: #cccccc">new</span> <span style="color: #cccccc">Vec(</span><span style="color: #cd00cd">70</span><span style="color: #cccccc">,</span> <span style="color: #cd00cd">360</span><span style="color: #cccccc">),</span>
-            <span style="color: #cccccc">velocity:</span> <span style="color: #cccccc">new</span> <span style="color: #cccccc">Vec(</span><span style="color: #cd00cd">50</span><span style="color: #cccccc">,</span> <span style="color: #cd00cd">180</span><span style="color: #cccccc">)</span>
-        <span style="color: #cccccc">},</span>
-        <span style="color: #cccccc">step:</span> <span style="color: #cccccc">function(</span> <span style="color: #cccccc">star,</span> <span style="color: #cccccc">body,</span> <span style="color: #cccccc">deltaTime){</span>
-            <span style="color: #cccccc">var</span> <span style="color: #cccccc">acc</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">acceleration(</span> <span style="color: #cccccc">star</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position</span> <span style="color: #cccccc">,</span> <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position);</span>
-            <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">velocity</span><span style="color: #3399cc">.</span><span style="color: #cccccc">iadd(acc</span><span style="color: #3399cc">.</span><span style="color: #cccccc">mul(deltaTime));</span>
-            <span style="color: #cccccc">body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">position</span><span style="color: #3399cc">.</span><span style="color: #cccccc">iadd(body</span><span style="color: #3399cc">.</span><span style="color: #cccccc">velocity</span><span style="color: #3399cc">.</span><span style="color: #cccccc">mul(deltaTime));</span>
-        <span style="color: #cccccc">}</span>
-    <span style="color: #cccccc">});</span>
-</pre></div>
-
-
-
-
-
-
-</p>
-
-<p>
-Hover your mouse over the following canvas to run this '<span style='color:red'><em>Euler Integration</em></span>' based simulation.
-</p>
-
-<canvas id='euler' width='800' height='600'></canvas>
-
 </section>
 
 </div><!--container for entire page-->
 
 <script type="text/javascript"
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-<script type="text/javascript">
-
-
-    new OneBody('euler', {
-        body: {
-            position: new Vec(70, 360),
-            velocity: new Vec(50, 180)
-        },
-        step: function(center, body, deltaTime){
-            var acc = acceleration(center, body.position);
-            body.velocity.iadd(acc.mul(deltaTime));
-            body.position.iadd(body.velocity.mul(deltaTime));
-        }
-    });
-
-
 </script>
     
 </body>
