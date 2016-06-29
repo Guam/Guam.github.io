@@ -107,8 +107,6 @@
         if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED && sheetsApiLoaded) {
           var doc = data[google.picker.Response.DOCUMENTS][0];
           name = doc.name;
-          console.log(doc);
-          active_sheet = doc;
           listStudentScores(doc.id);
         }
         var message = 'AME Data Sheet: ' + name ;
@@ -125,7 +123,8 @@
           spreadsheetId: id,
           range: 'data!A:B',
         }).then(function(response) {
-          console.log(response);
+          console.log(response.body);
+          active_sheet = response.body;
           appendPre(response.body);
           var range = response.result;
           if (range.values.length > 0) {
