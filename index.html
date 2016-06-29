@@ -68,7 +68,7 @@
       function loadSheetsApi() {
         var discoveryUrl =
             'https://sheets.googleapis.com/$discovery/rest?version=v4';
-        gapi.client.load(discoveryUrl);
+        gapi.client.load(discoveryUrl).then(listStudentScores);
       }
       
       function loadPickerApi() {
@@ -109,6 +109,7 @@
        * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
        */
       function listStudentScores(id) {
+        if(!id) return;
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: id,
           range: 'data!A1:B4',
