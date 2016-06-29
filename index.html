@@ -150,6 +150,15 @@
         pre.appendChild(textContent);
       }
 
+     function createSheet(name) {
+        gapi.client.sheets.create({
+  
+        }).then(function(response) {
+          appendPre(response.body);
+        }, function(response) {
+          appendPre('Error: ' + response.result.error.message);
+        });
+     }
 
     </script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth">
