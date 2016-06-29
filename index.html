@@ -106,6 +106,7 @@
         var name = 'nothing';
         if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED && sheetsApiLoaded) {
           var doc = data[google.picker.Response.DOCUMENTS][0];
+          console.log(data);
           name = doc.name;
           listStudentScores(doc.id);
         }
@@ -123,8 +124,7 @@
           spreadsheetId: id,
           range: 'data!A:B',
         }).then(function(response) {
-          console.log(response.body);
-          active_sheet = response.body;
+          console.log(response);
           appendPre(response.body);
           var range = response.result;
           if (range.values.length > 0) {
@@ -159,7 +159,7 @@
   
         }).then(function(response) {
           appendPre(response.body);
-          active_sheet = response.body.spreadsheet;
+          active_sheet = response.body;
         }, function(response) {
           appendPre('Error: ' + response.result.error.message);
         });
