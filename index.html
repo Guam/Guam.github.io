@@ -167,9 +167,7 @@
      }
      
      function updateSheet() {
-       gapi.client.sheets.spreadsheets.values.update({
-             active_sheet;
-          }).then(function(response) {
+       gapi.client.sheets.spreadsheets.values.update(active_sheet).then(function(response) {
             appendPre(response.body);
           }, function(response) {
             appendPre('Error: ' + response.result.error.message);
