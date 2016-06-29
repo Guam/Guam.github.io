@@ -123,8 +123,8 @@
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: id,
           range: 'data!A:B',
-        }).then(function(response.result) {
-          appendPre(response);
+        }).then(function(response) {
+          appendPre(response.result);
           var range = response.result;
           if (range.values.length > 0) {
             appendPre('Name, Score:');
