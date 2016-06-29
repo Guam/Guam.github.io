@@ -15,7 +15,7 @@
       var CLIENT_ID = '1084952714805-n044jiurb1m6cpjuhkb32752m081bos5.apps.googleusercontent.com';
 
       var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly","https://www.googleapis.com/auth/drive"];
-      var pickerApiLoaded = false;
+      
       var oauthToken = false;
       /**
        * Check if current user has authorized this application.
@@ -65,11 +65,19 @@
       /**
        * Load Sheets API client library.
        */
+      var sheetsApiLoaded = false; 
+      
       function loadSheetsApi() {
         var discoveryUrl =
             'https://sheets.googleapis.com/$discovery/rest?version=v4';
-        gapi.client.load(discoveryUrl).then(listStudentScores);
+        gapi.client.load(discoveryUrl).then(onSheetsApiLoaded);
       }
+      
+      function onSheetsApiLoaded() {
+        sheetsApiLoaded = true;
+      }
+      
+      var pickerApiLoaded = false;
       
       function loadPickerApi() {
         gapi.load('picker', {'callback': onPickerApiLoad});
@@ -94,7 +102,7 @@
       
       function pickerCallback(data) {
         var url = 'nothing';
-        if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+        if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED && sheetsApiLoaded) {
           var doc = data[google.picker.Response.DOCUMENTS][0];
           url = doc[google.picker.Document.URL];
           console.log(doc);
