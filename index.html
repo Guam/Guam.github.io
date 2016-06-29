@@ -168,7 +168,7 @@
      
      function updateSheet() {
        gapi.client.sheets.spreadsheets.update({
-             id: active_sheetId;
+             id: active_sheetId,
              range: 'data!A:B'
           }).then(function(response) {
             appendPre(response.body);
