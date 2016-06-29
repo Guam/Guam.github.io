@@ -120,7 +120,7 @@
         if(!id) return;
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: id,
-          range: 'data!A1:B4',
+          //range: 'data!A1:B4',
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
