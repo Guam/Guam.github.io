@@ -14,7 +14,7 @@
       var CLIENT_ID = '1084952714805-n044jiurb1m6cpjuhkb32752m081bos5.apps.googleusercontent.com';
 
       var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
-
+      var picker_api_loaded = false;
       /**
        * Check if current user has authorized this application.
        */
@@ -73,7 +73,8 @@
       }
       
       function onPickerAPILoad() {
-        alert();
+        pickerApiLoaded = true;
+        createPicker();
       }
 
       /**
