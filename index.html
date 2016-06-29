@@ -109,7 +109,7 @@
        * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
        */
       function listStudentScores(id) {
-        if(!id) return;
+        if(!id) id = '1rjZMcDu2hNmzBbjSf0oijFzbVNq7R8UDpyquShJTTus';
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: id,
           range: 'data!A1:B4',
