@@ -14,7 +14,7 @@
       // Developer Console, https://console.developers.google.com
       var CLIENT_ID = '1084952714805-n044jiurb1m6cpjuhkb32752m081bos5.apps.googleusercontent.com';
 
-      var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
+      var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly","https://www.googleapis.com/auth/drive"];
       var pickerApiLoaded = false;
       var oauthToken = false;
       /**
@@ -26,7 +26,7 @@
           {
             'client_id': CLIENT_ID,
             'scope': SCOPES.join(' '),
-            'immediate': false
+            'immediate': true
           }, handleAuthResult);
       }
 
