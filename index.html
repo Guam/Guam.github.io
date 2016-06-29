@@ -9,12 +9,14 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/noscroll.css"/>
     
     <script type="text/javascript">
+      var developerKey = 'AIzaSyBNpt2GKcuxS9Wg8K-m9N9MatORWaMRopU';
       // Your Client ID can be retrieved from your project in the Google
       // Developer Console, https://console.developers.google.com
       var CLIENT_ID = '1084952714805-n044jiurb1m6cpjuhkb32752m081bos5.apps.googleusercontent.com';
 
       var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
       var pickerApiLoaded = false;
+      var oauthToken = false;
       /**
        * Check if current user has authorized this application.
        */
@@ -38,6 +40,7 @@
         if (authResult && !authResult.error) {
           // Hide auth UI, then load client library.
           authorizeDiv.style.display = 'none';
+          oauthToken = authResult.access_token;
           loadPickerApi();
           loadSheetsApi();
         } else {
@@ -75,6 +78,28 @@
       function onPickerApiLoad() {
         pickerApiLoaded = true;
         createPicker();
+      }
+      
+      function createPicker() {
+        if (pickerApiLoaded && oauthToken) {
+          var picker = new google.picker.PickerBuilder().
+              addView(google.picker.ViewId.SHEETS).
+              setOAuthToken(oauthToken).
+              setDeveloperKey(developerKey).
+              setCallback(pickerCallback).
+              build();
+          picker.setVisible(true);
+        }
+      }
+      
+      function pickerCallback(data) {
+        var url = 'nothing';
+        if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+          var doc = data[google.picker.Response.DOCUMENTS][0];
+          url = doc[google.picker.Document.URL];
+        }
+        var message = 'You picked: ' + url;
+        document.getElementById('result').innerHTML = message;
       }
 
       /**
@@ -144,7 +169,7 @@
     </div>
     <pre id="output"></pre>
 
-
+    <div id='result'></div>
 </section>
 </div><!--End container div-->
     
