@@ -16,6 +16,8 @@
 
       var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly","https://www.googleapis.com/auth/drive"];
       
+      var active_sheet = false;
+      
       var oauthToken = false;
       /**
        * Check if current user has authorized this application.
@@ -122,6 +124,7 @@
           spreadsheetId: id,
           range: 'data!A:B',
         }).then(function(response) {
+          appendPre(response);
           var range = response.result;
           if (range.values.length > 0) {
             appendPre('Name, Score:');
