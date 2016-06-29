@@ -125,7 +125,8 @@
           range: 'data!A:B',
         }).then(function(response) {
           console.log(response);
-          appendPre(response.result);
+          appendPre(response.body);
+          active_sheet = response.body;
           var range = response.result;
           if (range.values.length > 0) {
             appendPre('Name, Score:');
@@ -159,6 +160,7 @@
   
         }).then(function(response) {
           appendPre(response.body);
+          active_sheet = response.body;
         }, function(response) {
           appendPre('Error: ' + response.result.error.message);
         });
