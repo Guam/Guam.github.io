@@ -66,6 +66,14 @@
             'https://sheets.googleapis.com/$discovery/rest?version=v4';
         gapi.client.load(discoveryUrl).then(listMajors);
       }
+      
+      function loadPickerApi() {
+        gapi.load('picker', {'callback': onPickerApiLoad});
+      }
+      
+      function onPickerAPILoad() {
+        alert();
+      }
 
       /**
        * Print the names and majors of students in a sample spreadsheet:
