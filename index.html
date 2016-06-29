@@ -101,14 +101,14 @@
       }
       
       function pickerCallback(data) {
-        var url = 'nothing';
+        var name = 'nothing';
         if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED && sheetsApiLoaded) {
           var doc = data[google.picker.Response.DOCUMENTS][0];
-          url = doc[google.picker.Document.URL];
+          name = doc.name;
           console.log(doc);
           listStudentScores(doc.id);
         }
-        var message = 'You picked: ' + url;
+        var message = 'AME Data Sheet: ' + name ;
         document.getElementById('result').innerHTML = message;
       }
 
