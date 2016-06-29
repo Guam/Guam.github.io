@@ -108,7 +108,7 @@
           var doc = data[google.picker.Response.DOCUMENTS][0];
           name = doc.name;
           console.log(doc);
-          active_sheetId = doc.id;
+          active_sheet = doc;
           listStudentScores(doc.id);
         }
         var message = 'AME Data Sheet: ' + name ;
@@ -160,16 +160,15 @@
   
         }).then(function(response) {
           appendPre(response.body);
-          active_sheetId = response.body.spreadsheetId;
+          active_sheet = response.body.spreadsheet;
         }, function(response) {
           appendPre('Error: ' + response.result.error.message);
         });
      }
      
      function updateSheet() {
-       gapi.client.sheets.spreadsheets.update({
-             id: active_sheetId,
-             range: 'data!A:B'
+       gapi.client.sheets.spreadsheets.values.update({
+             active_sheet;
           }).then(function(response) {
             appendPre(response.body);
           }, function(response) {
