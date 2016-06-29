@@ -98,7 +98,7 @@
           var doc = data[google.picker.Response.DOCUMENTS][0];
           url = doc[google.picker.Document.URL];
           console.log(doc);
-          loadStudentScores(doc.id);
+          listStudentScores(doc.id);
         }
         var message = 'You picked: ' + url;
         document.getElementById('result').innerHTML = message;
