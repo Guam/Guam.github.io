@@ -124,6 +124,7 @@
           spreadsheetId: id,
           range: 'data!A:B',
         }).then(function(response) {
+          console.log(response);
           appendPre(response.result);
           var range = response.result;
           if (range.values.length > 0) {
