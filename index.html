@@ -227,8 +227,12 @@
         gapi.client.sheets.spreadsheets.batchUpdate({
           "spreadsheetId": activeId,
           "requests": [{
-            "updateSpreadsheetProperties": {
+              "updateSpreadsheetProperties": {
                 "properties": {"title": "AME Data"},
+                "fields": "title"
+              },
+              "updateSheetProperties": {
+                "properties": {"sheetId": 0, "title": "students"},
                 "fields": "title"
               }
           }]
