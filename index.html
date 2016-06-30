@@ -129,7 +129,7 @@
           console.log("List Studen Scores Response:");
           console.log(response);
           //appendPre(response.body);
-          active_sheet = response.body;
+          active_sheet = response.result;
           var range = response.result;
           if (range.values.length > 0) {
             appendPre('Name, Score:');
