@@ -164,6 +164,7 @@
         }).then(function(response) {
           appendPre(response.body);
           active_sheet = response.result;
+          activeId = response.result.spreadsheetId;
         }, function(response) {
           appendPre('Error: ' + response.result.error.message);
         });
