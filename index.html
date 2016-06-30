@@ -116,6 +116,16 @@
         var message = 'AME Data Sheet: ' + name ;
         document.getElementById('result').innerHTML = message;
       }
+      
+      init = function() {
+        s = new gapi.drive.share.ShareClient();
+        s.setOAuthToken(oauthToken);
+        s.setItemIds([activeId]);
+        s.showSettingsDialog();
+      }
+      function shareTestWithTeacher() {
+          gapi.load('drive-share', init);
+      }
 
       /**
        * Print the names and majors of students in a sample spreadsheet:
@@ -332,6 +342,8 @@
     </div>
     <button id="load-button" onclick="createPicker()">Load AME Data (Google Spreadsheet)</button>
     <button id="create-button" onclick="createSpreadsheet()">Create AME Data (Google Spreadsheet)</button>
+    <br></br>
+    <button onclick="s.showSettingsDialog()">Share Test with Teacher</button>
     <pre id="output"></pre>
 
     <div id='result'></div>
