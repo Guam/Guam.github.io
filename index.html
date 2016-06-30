@@ -226,7 +226,6 @@
      function batchUpdate() {
         gapi.client.sheets.spreadsheets.batchUpdate({
           "spreadsheetId": activeId,
-          "title":'students',
           "fields": '*',
           }).then(function(response) {
           appendPre(response.body);
