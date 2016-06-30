@@ -222,6 +222,7 @@
           titleUpdateSpreadsheet();
           titleUpdateSheet();
           addSheetQuizzes();
+          addDummyData();
         }, function(response) {
           appendPre('Error: ' + response.result.error.message);
         });
@@ -289,7 +290,7 @@
           console.log(response.result.error.message)});
      }
      
-     function updateSheet() {
+     function addDummyData() {
        var s = {};
        s.spreadsheetId = activeId;
        s.valueInputOption = 'USER_ENTERED';
