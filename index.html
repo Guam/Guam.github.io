@@ -17,6 +17,7 @@
       var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly","https://www.googleapis.com/auth/drive"];
       
       var active_sheet = false;
+      var activeId = 0;
       
       var oauthToken = false;
       /**
@@ -108,6 +109,7 @@
           var doc = data[google.picker.Response.DOCUMENTS][0];
           console.log(data);
           name = doc.name;
+          activeId = doc.id;
           listStudentScores(doc.id);
         }
         var message = 'AME Data Sheet: ' + name ;
@@ -126,6 +128,7 @@
         }).then(function(response) {
           console.log(response);
           appendPre(response.body);
+          active_sheet = response.body;
           var range = response.result;
           if (range.values.length > 0) {
             appendPre('Name, Score:');
@@ -166,6 +169,7 @@
      }
      
      function updateSheet() {
+       active_sheet.spreadsheetId = currentId;
        gapi.client.sheets.spreadsheets.values.update(active_sheet).then(function(response) {
             appendPre(response.body);
           }, function(response) {
