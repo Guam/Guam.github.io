@@ -223,17 +223,31 @@
         });
      }
      
-     function batchUpdate() {
+     function titleUpdateSheets() {
         gapi.client.sheets.spreadsheets.batchUpdate({
           "spreadsheetId": activeId,
           "requests": [{
               "updateSpreadsheetProperties": {
                 "properties": {"title": "AME Data"},
                 "fields": "title"
-              },
+              }
+          }]
+          }).then(function(response) {
+          appendPre(response.body);
+          active_sheet = response.result;
+          activeId = response.result.spreadsheetId;
+        }, function(response) {
+          appendPre('Error: ' + response.result.error.message);
+        });
+     }
+     
+     function titleUpdateSheet() {
+        gapi.client.sheets.spreadsheets.batchUpdate({
+          "spreadsheetId": activeId,
+          "requests": [{
               "updateSheetProperties": {
-                "properties": {"sheetId": 0, "title": "students"},
-                "fields": "title"
+                  "properties": {"sheetId": 0, "title": "students"},
+                  "fields": "title"
               }
           }]
           }).then(function(response) {
