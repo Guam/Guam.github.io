@@ -174,7 +174,7 @@
        var s = {};
        s.spreadsheetId = activeId;
        s.valueInputOption = 'USER_ENTERED';
-       s.range = 'data!A:B';
+       s.range = 'Sheet1!A:B';
        s.values = [['Student 1',999]];
        gapi.client.sheets.spreadsheets.values.update(s).then(function(response) {
             console.log(response.body);
