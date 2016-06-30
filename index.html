@@ -226,7 +226,10 @@
      function batchUpdate() {
         gapi.client.sheets.spreadsheets.batchUpdate({
           "spreadsheetId": activeId,
-          "fields": '*',
+          "updateSpreadsheetProperties": {
+            "properties": {"title": "My New Title"},
+            "fields": "title"
+          }
           }).then(function(response) {
           appendPre(response.body);
           active_sheet = response.result;
