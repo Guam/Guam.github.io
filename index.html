@@ -173,7 +173,7 @@
        active_sheet.spreadsheetId = activeId;
        active_sheet.valueInputOption = 'USER_ENTERED';
        gapi.client.sheets.spreadsheets.values.update(active_sheet).then(function(response) {
-            appendPre(response.body);
+            console.log(response.body);
           }, function(response) {
             appendPre('Error: ' + response.result.error.message);
         });
