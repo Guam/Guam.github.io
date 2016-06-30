@@ -227,12 +227,10 @@
         gapi.client.sheets.spreadsheets.batchUpdate({
           "addSheet":{
             "properties": {
-              {
                 "spreadsheetId": activeId,
                 "properties": {
                   title:'students',
                 },
-              }
             },
           }
         }).then(function(response) {
