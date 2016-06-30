@@ -214,7 +214,7 @@
      function createSheet(name) {
         
         gapi.client.sheets.spreadsheets.create({
-        "spreadsheet": ns
+           title: 'AME Data Sheet'
         }).then(function(response) {
           appendPre(response.body);
           active_sheet = response.result;
