@@ -209,7 +209,7 @@
                     
                   }
                 ],
-              };
+              }
         gapi.client.sheets.spreadsheets.create(ns).then(function(response) {
           appendPre(response.body);
           active_sheet = response.result;
