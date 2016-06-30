@@ -225,12 +225,10 @@
      
      function batchUpdate() {
         gapi.client.sheets.spreadsheets.batchUpdate({
+          "spreadsheetId": activeId,
           "addSheet":{
             "properties": {
-                "spreadsheetId": activeId,
-                "properties": {
                   title:'students',
-                },
             },
           }
         }).then(function(response) {
