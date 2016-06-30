@@ -158,8 +158,7 @@
         pre.appendChild(textContent);
       }
 
-     function createSheet(name) {
-        var ns = {
+     var ns = {
                 "spreadsheetId": string,
                 "properties": {
                   "title": "AME Data Sheet",
@@ -209,7 +208,10 @@
                     
                   }
                 ],
-              }
+              };
+              
+     function createSheet(name) {
+        
         gapi.client.sheets.spreadsheets.create(ns).then(function(response) {
           appendPre(response.body);
           active_sheet = response.result;
