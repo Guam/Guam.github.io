@@ -223,6 +223,27 @@
         });
      }
      
+     function batchUpdate() {
+        gapi.client.sheets.spreadsheets.batchUpdate({
+          "addSheet":{
+            "properties": {
+              {
+                "spreadsheetId": activeId,
+                "properties": {
+                  title:'students',
+                },
+              }
+            },
+          }
+        }).then(function(response) {
+          appendPre(response.body);
+          active_sheet = response.result;
+          activeId = response.result.spreadsheetId;
+        }, function(response) {
+          appendPre('Error: ' + response.result.error.message);
+        });
+     }
+     
      function copy(){
        gapi.client.sheets.spreadsheets.sheets.copyTo({
            spreadsheetId:'1kuVu4dRXz9Id7XpZo6IkRDKe1S-QYe27jF0wfftw1sc',
