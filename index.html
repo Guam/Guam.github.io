@@ -224,6 +224,15 @@
         });
      }
      
+     function copy(){
+       gapi.client.sheets.spreadsheets.sheets.copyTo({
+           spreadsheetId:'1kuVu4dRXz9Id7XpZo6IkRDKe1S-QYe27jF0wfftw1sc',
+           sheetId:'1rjZMcDu2hNmzBbjSf0oijFzbVNq7R8UDpyquShJTTus'
+        }).then(function(response){console.log(response)},function(response){
+          console.log('ERROR:');
+          console.log(response)});
+     }
+     
      function updateSheet() {
        var s = {};
        s.spreadsheetId = activeId;
