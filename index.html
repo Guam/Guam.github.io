@@ -135,7 +135,7 @@
         if(!id) return;
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: id,
-          range: 'data!A:B',
+          range: 'students!A:B',
         }).then(function(response) {
           //console.log("List Student Scores Response:");
           //console.log(response);
