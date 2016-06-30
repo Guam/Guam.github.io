@@ -171,9 +171,11 @@
      }
      
      function updateSheet() {
-       active_sheet.spreadsheetId = activeId;
-       active_sheet.valueInputOption = 'USER_ENTERED';
-       gapi.client.sheets.spreadsheets.values.update(active_sheet).then(function(response) {
+       var s = {};
+       s.spreadsheetId = activeId;
+       s.valueInputOption = 'USER_ENTERED';
+       s.range = 'data!A:B';
+       gapi.client.sheets.spreadsheets.values.update(s).then(function(response) {
             console.log(response.body);
           }, function(response) {
             appendPre('Error: ' + response.result.error.message);
