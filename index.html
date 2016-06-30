@@ -223,12 +223,30 @@
         });
      }
      
-     function titleUpdateSheets() {
+     function titleUpdateSpreadsheet() {
         gapi.client.sheets.spreadsheets.batchUpdate({
           "spreadsheetId": activeId,
           "requests": [{
               "updateSpreadsheetProperties": {
                 "properties": {"title": "AME Data"},
+                "fields": "title"
+              }
+          }]
+          }).then(function(response) {
+          appendPre(response.body);
+          active_sheet = response.result;
+          activeId = response.result.spreadsheetId;
+        }, function(response) {
+          appendPre('Error: ' + response.result.error.message);
+        });
+     }
+     
+     function addSheetQuizzes() {
+        gapi.client.sheets.spreadsheets.batchUpdate({
+          "spreadsheetId": activeId,
+          "requests": [{
+              "addSheet": {
+                "properties": {"title": "quizzes"},
                 "fields": "title"
               }
           }]
