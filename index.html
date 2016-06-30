@@ -214,24 +214,7 @@
      function createSheet(name) {
         
         gapi.client.sheets.spreadsheets.create({
-        "requests": [
-                  {
-                    "addSheet": {
-                      "properties": {
-                        "title": "AME Data Sheet",
-                        "gridProperties": {
-                          "rowCount": 20,
-                          "columnCount": 12
-                        },
-                        "tabColor": {
-                          "red": 1.0,
-                          "green": 0.3,
-                          "blue": 0.4
-                        }
-                      }
-                    }
-                  }
-                ]
+        "spreadsheet": ns
         }).then(function(response) {
           appendPre(response.body);
           active_sheet = response.result;
