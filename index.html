@@ -230,7 +230,7 @@
            sheetId:'1rjZMcDu2hNmzBbjSf0oijFzbVNq7R8UDpyquShJTTus'
         }).then(function(response){console.log(response)},function(response){
           console.log('ERROR:');
-          console.log(response)});
+          console.log(response.result.error.message)});
      }
      
      function updateSheet() {
