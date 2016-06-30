@@ -159,9 +159,60 @@
       }
 
      function createSheet(name) {
-        gapi.client.sheets.spreadsheets.create({
-  
-        }).then(function(response) {
+        var ns = {
+                "spreadsheetId": string,
+                "properties": {
+                  "title": "AME Data Sheet",
+                  "locale": "en_GB",
+                  "autoRecalc": "ON_CHANGE",
+                  "timeZone": "Etc/GMT",
+                  "defaultFormat": {
+                    "backgroundColor": {
+                      "red": 1,
+                      "green": 1,
+                      "blue": 1
+                    },
+                    "padding": {
+                      "top": 2,
+                      "right": 3,
+                      "bottom": 2,
+                      "left": 3
+                    },
+                    "verticalAlignment": "BOTTOM",
+                    "wrapStrategy": "OVERFLOW_CELL",
+                    "textFormat": {
+                      "foregroundColor": {},
+                      "fontFamily": "arial,sans,sans-serif",
+                      "fontSize": 10,
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false
+                    }
+                },
+                "sheets": [
+                  {
+                    {
+                      "properties": {
+                        "sheetId": 0,
+                        "title": "students",
+                        "index": 0,
+                        "sheetType": "GRID",
+                        "gridProperties": {
+                          "rowCount": 1000,
+                          "columnCount": 26
+                        }
+                      }
+                    }
+                  }
+                ],
+                "namedRanges": [
+                  {
+                    
+                  }
+                ],
+              };
+        gapi.client.sheets.spreadsheets.create(ns).then(function(response) {
           appendPre(response.body);
           active_sheet = response.result;
           activeId = response.result.spreadsheetId;
@@ -174,7 +225,7 @@
        var s = {};
        s.spreadsheetId = activeId;
        s.valueInputOption = 'USER_ENTERED';
-       s.range = 'Sheet1!A:B';
+       s.range = 'students!A:B';
        s.values = [['Student 1',999]];
        gapi.client.sheets.spreadsheets.values.update(s).then(function(response) {
             console.log(response.body);
