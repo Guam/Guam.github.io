@@ -107,7 +107,7 @@
         var name = 'nothing';
         if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED && sheetsApiLoaded) {
           var doc = data[google.picker.Response.DOCUMENTS][0];
-          console.log(data);
+          //console.log(data);
           name = doc.name;
           activeId = doc.id;
           listStudentScores(doc.id);
@@ -126,8 +126,8 @@
           spreadsheetId: id,
           range: 'data!A:B',
         }).then(function(response) {
-          console.log(response);
-          appendPre(response.body);
+          //console.log(response);
+          //appendPre(response.body);
           active_sheet = response.body;
           var range = response.result;
           if (range.values.length > 0) {
@@ -169,7 +169,7 @@
      }
      
      function updateSheet() {
-       active_sheet.spreadsheetId = currentId;
+       active_sheet.spreadsheetId = activeId;
        gapi.client.sheets.spreadsheets.values.update(active_sheet).then(function(response) {
             appendPre(response.body);
           }, function(response) {
