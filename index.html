@@ -212,13 +212,16 @@
               }
      };
               
-     function createSheet(name) {
+     function createSpreadsheet(name) {
         
         gapi.client.sheets.spreadsheets.create({
         }).then(function(response) {
           appendPre(response.body);
           active_sheet = response.result;
           activeId = response.result.spreadsheetId;
+          titleUpdateSpreadsheet();
+          titleUpdateSheet();
+          addSheetQuizzes();
         }, function(response) {
           appendPre('Error: ' + response.result.error.message);
         });
@@ -327,6 +330,7 @@
       </button>
     </div>
     <button id="load-button" onclick="createPicker()">Load AME Data (Google Spreadsheet)</button>
+    <button id="create-button" onclick="createSpreadsheet()">Create AME Data (Google Spreadsheet)</button>
     <pre id="output"></pre>
 
     <div id='result'></div>
