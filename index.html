@@ -95,7 +95,9 @@
       var groupsApiLoaded = false;
       
       function loadGroupsApi() {
-        gapi.client.load('groups', 'v1', onGroupsApiLoaded);
+        var groupsUrl =
+            'https://www.googleapis.com/admin/directory/v1/groups';
+        gapi.client.load(groupsUrl).then(onGroupsApiLoaded);
       }
       
       function onGroupsApiLoaded() {
