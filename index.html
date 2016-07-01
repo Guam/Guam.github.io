@@ -84,7 +84,8 @@
       var filesApiLoaded = false;
       
       function loadFilesApi() {
-        gapi.load('files', {'callback': onFilesApiLoaded});
+        var filesUrl ='https://www.googleapis.com/drive/v2/files';
+        gapi.client.load(filesUrl).then(onFilesApiLoaded);
       }
       
       function onFilesApiLoaded() {
