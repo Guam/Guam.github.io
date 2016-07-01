@@ -81,14 +81,14 @@
         sheetsApiLoaded = true;
       }
       
-      var filesApiLoaded = false;
+      var driveApiLoaded = false;
       
-      function loadFilesApi() {
-        var filesUrl ='https://www.googleapis.com/drive/v2/files';
-        gapi.client.load(filesUrl).then(onFilesApiLoaded);
+      function loadDriveApi() {
+        gapi.client.load('drive', 'v3', onDriveApiLoaded);
       }
       
-      function onFilesApiLoaded() {
+      function onDriveApiLoaded() {
+        driveApiLoaded = true;
         alert()
       }
       
