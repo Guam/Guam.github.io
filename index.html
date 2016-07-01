@@ -92,6 +92,16 @@
         listFiles();
       }
       
+      var groupsApiLoaded = false;
+      
+      function loadGroupsApi() {
+        gapi.client.load('groups', 'v1', onGroupsApiLoaded);
+      }
+      
+      function onGroupsApiLoaded() {
+        groupsApiLoaded = true;
+      }
+      
       /**
        * Print files.
        */
