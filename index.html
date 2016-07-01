@@ -81,6 +81,16 @@
         sheetsApiLoaded = true;
       }
       
+      var filesApiLoaded = false;
+      
+      function loadFilesApi() {
+        gapi.load('files', {'callback': onFilesApiLoad});
+      }
+      
+      function onFilesApiLoaded() {
+        alert()
+      }
+      
       var pickerApiLoaded = false;
       
       function loadPickerApi() {
