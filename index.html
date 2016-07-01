@@ -89,7 +89,30 @@
       
       function onDriveApiLoaded() {
         driveApiLoaded = true;
-        alert()
+        listFiles();
+      }
+      
+      /**
+       * Print files.
+       */
+      function listFiles() {
+        var request = gapi.client.drive.files.list({
+            'pageSize': 10,
+            'fields': "nextPageToken, files(id, name)"
+          });
+
+          request.execute(function(resp) {
+            appendPre('Files:');
+            var files = resp.files;
+            if (files && files.length > 0) {
+              for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                appendPre(file.name + ' (' + file.id + ')');
+              }
+            } else {
+              appendPre('No files found.');
+            }
+          });
       }
       
       var pickerApiLoaded = false;
@@ -180,58 +203,7 @@
         pre.appendChild(textContent);
       }
 
-     var ns = {
-                "spreadsheetId": '',
-                "properties": {
-                  "title": "AME Data Sheet",
-                  "locale": "en_GB",
-                  "autoRecalc": "ON_CHANGE",
-                  "timeZone": "Etc/GMT",
-                  "defaultFormat": {
-                    "backgroundColor": {
-                      "red": 1,
-                      "green": 1,
-                      "blue": 1
-                    },
-                    "padding": {
-                      "top": 2,
-                      "right": 3,
-                      "bottom": 2,
-                      "left": 3
-                    },
-                    "verticalAlignment": "BOTTOM",
-                    "wrapStrategy": "OVERFLOW_CELL",
-                    "textFormat": {
-                      "foregroundColor": {},
-                      "fontFamily": "arial,sans,sans-serif",
-                      "fontSize": 10,
-                      "bold": false,
-                      "italic": false,
-                      "strikethrough": false,
-                      "underline": false
-                    }
-                },
-                "sheets": [
-                    {
-                      "properties": {
-                        "sheetId": 0,
-                        "title": "students",
-                        "index": 0,
-                        "sheetType": "GRID",
-                        "gridProperties": {
-                          "rowCount": 1000,
-                          "columnCount": 26
-                        }
-                      }
-                    }
-                ],
-                "namedRanges": [
-                  {
-                    
-                  }
-                ]
-              }
-     };
+
               
      function createSpreadsheet(name) {
         
