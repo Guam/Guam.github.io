@@ -99,7 +99,7 @@
             resource: {
               'type': 'user',
               'role': 'writer',
-              'emailAddress': 'eric.eisaman@live.com'
+              'emailAddress': 'joe@list.com'
             },
             fileId: fileId,
             fields: 'id',
@@ -109,7 +109,24 @@
               console.log(err);
             } else {
               console.log('Permission ID: ',  res.id)
-            }});
+              drive.permissions.create({
+                resource: {
+                  'type': 'domain',
+                  'role': 'reader',
+                  'domain': 'drive.google.com'
+                },
+                fileId: fileId,
+                fields: 'id',
+              }, function(err, res) {
+                if (err) {
+                  // Handle error
+                  console.log(err);
+                } else {
+                  console.log('Permission ID: ',  res.id)
+                }
+              });
+            }
+          });
       }
       
       
