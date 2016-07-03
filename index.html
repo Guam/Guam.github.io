@@ -90,19 +90,28 @@
       function onDriveApiLoaded() {
         driveApiLoaded = true;
         listFiles();
+        addEric();
       }
       
-      var groupsApiLoaded = false;
-      
-      function loadGroupsApi() {
-        var groupsUrl =
-            'https://www.googleapis.com/admin/directory/v1/groups';
-        gapi.client.load(groupsUrl).then(onGroupsApiLoaded);
+      function addEric() {
+          var fileId = '1kIwFCP1gWP4TkO-AfyZSDl0eCqi9TE5l3DCTvGmOAtM';
+          drive.permissions.create({
+            resource: {
+              'type': 'user',
+              'role': 'writer',
+              'emailAddress': 'eric.eisaman@live.com'
+            },
+            fileId: fileId,
+            fields: 'id',
+          }, function(err, res) {
+            if (err) {
+              // Handle error
+              console.log(err);
+            } else {
+              console.log('Permission ID: ',  res.id)
+            });
       }
       
-      function onGroupsApiLoaded() {
-        groupsApiLoaded = true;
-      }
       
       /**
        * Print files.
