@@ -112,7 +112,10 @@
           'fileId': fileId,
           'resource': body
         });
-        request.execute(function(resp) { });
+        request.execute(function(err,resp) { 
+          console.log(err);
+          console.log(resp);
+        });
       }
       
       
