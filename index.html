@@ -113,8 +113,22 @@
           'resource': body
         });
         request.execute(function(err,resp) { 
-          console.log(err);
-          console.log(resp);
+          console.log('Permission ID: ',  res.id)
+          gapi.client.drive.permissions.create({
+            resource: {
+              'type': 'domain',
+              'role': 'reader',
+              'domain': 'drive.google.com'
+            },
+            fileId: fileId,
+            fields: 'id',
+          }, function(err, res) {
+            if (err) {
+              // Handle error
+              console.log(err);
+            } else {
+              console.log('Permission ID: ',  res.id)
+            }
         });
       }
       
