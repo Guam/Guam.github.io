@@ -90,44 +90,32 @@
       function onDriveApiLoaded() {
         driveApiLoaded = true;
         listFiles();
-        addEric();
+        insertPermission('1kIwFCP1gWP4TkO-AfyZSDl0eCqi9TE5l3DCTvGmOAtM','eric.eisaman@live.com','user','writer');
       }
       
-      function addEric() {
-          var fileId = '1kIwFCP1gWP4TkO-AfyZSDl0eCqi9TE5l3DCTvGmOAtM';
-          gapi.client.drive.permissions.create({
-            resource: {
-              'type': 'user',
-              'role': 'writer',
-              'emailAddress': 'joe@list.com'
-            },
-            fileId: fileId,
-            fields: 'id',
-          }, function(err, res) {
-            if (err) {
-              // Handle error
-              console.log(err);
-            } else {
-              console.log('Permission ID: ',  res.id)
-              drive.permissions.create({
-                resource: {
-                  'type': 'domain',
-                  'role': 'reader',
-                  'domain': 'drive.google.com'
-                },
-                fileId: fileId,
-                fields: 'id',
-              }, function(err, res) {
-                if (err) {
-                  // Handle error
-                  console.log(err);
-                } else {
-                  console.log('Permission ID: ',  res.id)
-                }
-              });
-            }
-          });
+      /**
+       * Insert a new permission.
+       *
+       * @param {String} fileId ID of the file to insert permission for.
+       * @param {String} value User or group e-mail address, domain name or
+       *                       {@code null} "default" type.
+       * @param {String} type The value "user", "group", "domain" or "default".
+       * @param {String} role The value "owner", "writer" or "reader".
+       */
+      function insertPermission(fileId, value, type, role) {
+        var body = {
+          'value': value,
+          'type': type,
+          'role': role
+        };
+        var request = gapi.client.drive.permissions.insert({
+          'fileId': fileId,
+          'resource': body
+        });
+        request.execute(function(resp) { });
       }
+      
+      
       
       
       /**
