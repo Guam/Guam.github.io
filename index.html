@@ -112,7 +112,7 @@
           'fileId': fileId,
           'resource': body
         });
-        request.execute(function(err,resp) { 
+        request.execute(function(resp) { 
           console.log('Permission ID: ',  resp.id)
           gapi.client.drive.permissions.create({
             resource: {
