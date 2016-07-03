@@ -113,7 +113,7 @@
           'resource': body
         });
         request.execute(function(err,resp) { 
-          console.log('Permission ID: ',  res.id)
+          console.log('Permission ID: ',  resp.id)
           gapi.client.drive.permissions.create({
             resource: {
               'type': 'domain',
@@ -122,12 +122,12 @@
             },
             fileId: fileId,
             fields: 'id',
-          }, function(err, res) {
+          }, function(err, resp) {
             if (err) {
               // Handle error
               console.log(err);
             } else {
-              console.log('Permission ID: ',  res.id)
+              console.log('Permission ID: ',  resp.id)
             }
         });
       });
