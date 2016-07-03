@@ -95,7 +95,7 @@
       
       function addEric() {
           var fileId = '1kIwFCP1gWP4TkO-AfyZSDl0eCqi9TE5l3DCTvGmOAtM';
-          drive.permissions.create({
+          gapi.client.drive.permissions.create({
             resource: {
               'type': 'user',
               'role': 'writer',
