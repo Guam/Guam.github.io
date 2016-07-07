@@ -7,8 +7,24 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/noscroll.css"/>
+
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
     
     <script type="text/javascript">
+     
+     //Angolia Search Test with Common Standards Project
+     var algoliasearch = require('algoliasearch/lite');
+      var client = algoliasearch('O7L4OQENOZ', '8ddbc00c47560424ea9518dfbe2fe876');
+      var index = client.initIndex('indexName');
+      index.search('math', function searchDone(err, content) {
+        console.log(err, content);
+      });
+
+
+
+
+
+
       // API Key from Google Console -- this is browser key
       var developerKey = 'AIzaSyBNpt2GKcuxS9Wg8K-m9N9MatORWaMRopU';
       // Your Client ID can be retrieved from your project in the Google
