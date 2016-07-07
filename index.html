@@ -7,21 +7,40 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/noscroll.css"/>
-
-    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
+    
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
     
     <script type="text/javascript">
      
      //Angolia Search Test with Common Standards Project
-     var client = algoliasearch('O7L4OQENOZ', '8ddbc00c47560424ea9518dfbe2fe876');
-     var index = client.initIndex('common-standards-project');
-     index.search('Grade 10', function(err, results) {
-        if (err) {
-          throw err;
-        }
-      console.log('We got `' + results.nbHits + '` results');
-      console.log('Here is the first one: ', results.hits[0]);
-      });
+     // var client = algoliasearch('O7L4OQENOZ', '8ddbc00c47560424ea9518dfbe2fe876');
+     // var index = client.initIndex('common-standards-project');
+     // index.search('Grade 10', function(err, results) {
+     //    if (err) {
+     //      throw err;
+     //    }
+     //  console.log('We got `' + results.nbHits + '` results');
+     //  console.log('Here is the first one: ', results.hits[0]);
+     //  });
+
+      window.onload = function(){
+        var client = algoliasearch('O7L4OQENOZ', '8ddbc00c47560424ea9518dfbe2fe876')
+        var index = client.initIndex('common-standards-project');
+        autocomplete('#search-input', { hint: false }, [
+          {
+            source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+            displayKey: 'my_attribute',
+            templates: {
+              suggestion: function(suggestion) {
+                return suggestion._highlightResult.my_attribute.value;
+              }
+            }
+          }
+        ]).on('autocomplete:selected', function(event, suggestion, dataset) {
+          console.log(suggestion, dataset);
+        });
+      }
 
 
 
@@ -393,6 +412,7 @@
     <pre id="output"></pre>
 
     <div id='result'></div>
+    <input type="text" id="search-input" />
 </section>
 </div><!--End container div-->
     
