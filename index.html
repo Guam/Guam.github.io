@@ -27,14 +27,7 @@
       window.onload = function(){
         var client = algoliasearch('O7L4OQENOZ', '8ddbc00c47560424ea9518dfbe2fe876')
         var index = client.initIndex('common-standards-project');
-        index.setSettings({
-          'attributesToIndex': [
-            'jurisdiction'
-          ]
-        }, function(err, content) {
-          console.log(content);
-        });
-
+        
         autocomplete('#search-input', { hint: false }, [
           {
             source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
