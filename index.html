@@ -30,7 +30,7 @@
         autocomplete('#search-input', { hint: false }, [
           {
             source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
-            displayKey: 'subject',
+            displayKey: 'description',
             templates: {
               suggestion: function(suggestion) {
                 return suggestion._highlightResult.subject.value;
