@@ -30,10 +30,10 @@
         autocomplete('#search-input', { hint: false }, [
           {
             source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
-            displayKey: 'description',
+            displayKey: 'jurisdiction',
             templates: {
               suggestion: function(suggestion) {
-                return suggestion._highlightResult.description.value;
+                return suggestion._highlightResult.jurisdiction.value;
               }
             }
           }
