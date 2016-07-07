@@ -30,12 +30,12 @@
         autocomplete('#search-input', { hint: false }, [
           {
             source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
-            displayKey: 'description',
+            displayKey: 'jurisdiction.title',
             templates: {
               suggestion: function(suggestion) {
                 //console.log(suggestion);
                 if(suggestion.jurisdiction.title == 'Maine')
-                   return suggestion._highlightResult.description.value;
+                   return suggestion.jurisdiction.title;
 
                 else {
                   console.log(suggestion.jurisdiction.title);
