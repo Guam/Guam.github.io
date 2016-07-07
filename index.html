@@ -36,7 +36,11 @@
                 //console.log(suggestion);
                 if(suggestion.jurisdiction.title == 'Maine')
                    return suggestion._highlightResult.description.value;
-                else return null;
+
+                else {
+                  console.log(suggestion.jurisdiction.title);
+                  return null;
+                }
               }
             }
           }
