@@ -14,7 +14,7 @@
      
      //Angolia Search Test with Common Standards Project
      var client = algoliasearch('latency', '6be0576ff61c053d5f9a3225e2a90f76');
-     var index = client.initIndex('contacts');
+     var index = client.initIndex('common-standards-project');
      index.search('problems', function(err, results) {
         if (err) {
           throw err;
