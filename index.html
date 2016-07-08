@@ -27,12 +27,12 @@
      var xmlhttp = new XMLHttpRequest();
       var url = "http://api.commonstandardsproject.com/api/v1/standard_sets/49FCDFBD2CF04033A9C347BFA0584DF0_D2604890_grade-01";
 
-      xmlhttp.onreadystatechange = function(err) {
+      xmlhttp.onreadystatechange = function(evt) {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-              var myArr = JSON.parse(xmlhttp.responseText);
-              myFunction(myArr);
+              var object = JSON.parse(xmlhttp.responseText);
+              myFunction(object);
           }else{
-            console.log(err);   
+            console.log(evt);   
           }
       };
       xmlhttp.open("GET", url, true);
@@ -40,14 +40,14 @@
       xmlhttp.setRequestHeader("Api-Key", '4yACsx1wyU1EmV5gNGgiKdGB');
       xmlhttp.send();
 
-      function myFunction(arr) {
+      function myFunction(obj) {
           // var out = "";
           // var i;
           // for(i = 0; i < arr.length; i++) {
           //     out += '<a href="' + arr[i].url + '">' + 
           //     arr[i].display + '</a><br>';
           // }
-          console.log(arr);
+          console.log(obj.data);
       }
 
       // window.onload = function(){
