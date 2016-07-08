@@ -24,36 +24,62 @@
      //  console.log('Here is the first one: ', results.hits[0]);
      //  });
 
-      window.onload = function(){
-        var client = algoliasearch('O7L4OQENOZ', '8ddbc00c47560424ea9518dfbe2fe876')
-        var index = client.initIndex('common-standards-project');
-        
-        autocomplete('#search-input', { hint: false }, [
-          {
-            source: autocomplete.sources.hits(index, 
-              { 
-                query: 'Maine ' + document.getElementById('search-input').value,
-                restrictSearchableAttributes: 'subject,jurisdiction.title,description',
-                hitsPerPage: 5 
-              }),
-            displayKey: 'jurisdiction.title',
-            templates: {
-              suggestion: function(suggestion) {
-                //console.log(suggestion);
-                if(suggestion.jurisdiction.title == 'Maine' && suggestion.subject == 'Mathematics')
-                   return suggestion.jurisdiction.title;
+     var xmlhttp = new XMLHttpRequest();
+      var url = "http://api.commonstandardsproject.com/api/v1/standard_sets/49FCDFBD2CF04033A9C347BFA0584DF0_D2604890_grade-01";
 
-                else {
-                  console.log(suggestion.jurisdiction.title);
-                  return null;
-                }
-              }
-            }
+      xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              var myArr = JSON.parse(xmlhttp.responseText);
+              myFunction(myArr);
           }
-        ]).on('autocomplete:selected', function(event, suggestion, dataset) {
-          console.log(suggestion, dataset);
-        });
+      };
+      xmlhttp.open("GET", url, true);
+      xmlhttp.withCredentials = true;
+      xmlhttp.setRequestHeader("Api-Key", '4yACsx1wyU1EmV5gNGgiKdGB');
+      xmlhttp.send();
+
+      function myFunction(arr) {
+          var out = "";
+          var i;
+          for(i = 0; i < arr.length; i++) {
+              out += '<a href="' + arr[i].url + '">' + 
+              arr[i].display + '</a><br>';
+          }
+          console.log(out);
       }
+
+      // window.onload = function(){
+
+
+      //   var client = algoliasearch('O7L4OQENOZ', '8ddbc00c47560424ea9518dfbe2fe876')
+      //   var index = client.initIndex('common-standards-project');
+        
+      //   autocomplete('#search-input', { hint: false }, [
+      //     {
+      //       source: autocomplete.sources.hits(index, 
+      //         { 
+      //           query: 'Maine ' + document.getElementById('search-input').value,
+      //           restrictSearchableAttributes: 'subject,jurisdiction.title,description',
+      //           hitsPerPage: 5 
+      //         }),
+      //       displayKey: 'jurisdiction.title',
+      //       templates: {
+      //         suggestion: function(suggestion) {
+      //           //console.log(suggestion);
+      //           if(suggestion.jurisdiction.title == 'Maine' && suggestion.subject == 'Mathematics')
+      //              return suggestion.jurisdiction.title;
+
+      //           else {
+      //             console.log(suggestion.jurisdiction.title);
+      //             return null;
+      //           }
+      //         }
+      //       }
+      //     }
+      //   ]).on('autocomplete:selected', function(event, suggestion, dataset) {
+      //     console.log(suggestion, dataset);
+      //   });
+      // }
 
 
 
