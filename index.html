@@ -24,31 +24,31 @@
      //  console.log('Here is the first one: ', results.hits[0]);
      //  });
 
-     var xmlhttp = new XMLHttpRequest();
-      var url = "http://api.commonstandardsproject.com/api/v1/standard_sets/99301CAF70794BBCA568186C479A5DFC_D2479054_high-school-statistics-and-probability";
+     // var xmlhttp = new XMLHttpRequest();
+     //  var url = "http://api.commonstandardsproject.com/api/v1/standard_sets/99301CAF70794BBCA568186C479A5DFC_D2479054_high-school-statistics-and-probability";
 
-      xmlhttp.onreadystatechange = function(evt) {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-              var object = JSON.parse(xmlhttp.responseText);
-              myFunction(object);
-          }else{
-            console.log(evt);   
-          }
-      };
-      xmlhttp.open("GET", url, true);
-      xmlhttp.withCredentials = true;
-      xmlhttp.setRequestHeader("Api-Key", '4yACsx1wyU1EmV5gNGgiKdGB');
-      xmlhttp.send();
+     //  xmlhttp.onreadystatechange = function(evt) {
+     //      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+     //          var object = JSON.parse(xmlhttp.responseText);
+     //          myFunction(object);
+     //      }else{
+     //        console.log(evt);   
+     //      }
+     //  };
+     //  xmlhttp.open("GET", url, true);
+     //  xmlhttp.withCredentials = true;
+     //  xmlhttp.setRequestHeader("Api-Key", '4yACsx1wyU1EmV5gNGgiKdGB');
+     //  xmlhttp.send();
 
-      function myFunction(obj) {
-          // var out = "";
-          // var i;
-          // for(i = 0; i < arr.length; i++) {
-          //     out += '<a href="' + arr[i].url + '">' + 
-          //     arr[i].display + '</a><br>';
-          // }
-          console.log(obj.data);
-      }
+     //  function myFunction(obj) {
+     //      // var out = "";
+     //      // var i;
+     //      // for(i = 0; i < arr.length; i++) {
+     //      //     out += '<a href="' + arr[i].url + '">' + 
+     //      //     arr[i].display + '</a><br>';
+     //      // }
+     //      console.log(obj.data);
+     //  }
 
       // window.onload = function(){
 
