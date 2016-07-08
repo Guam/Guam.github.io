@@ -33,7 +33,7 @@
             source: autocomplete.sources.hits(index, 
               { 
                 query: 'Maine ' + document.getElementById('search-input').value,
-                restrictSearchableAttributes: 'normalizedSubject, jurisdiction.title',
+                restrictSearchableAttributes: 'subject, jurisdiction.title',
                 hitsPerPage: 5 
               }),
             displayKey: 'jurisdiction.title',
