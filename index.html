@@ -419,9 +419,15 @@
         });
      }
      
+     function resetSearch(e){
+         var frame = document.getElementById('search');
+         frame.src = 'http://commonstandardsproject.com/search';
+     }
+
     </script>
-    <script src="https://apis.google.com/js/client.js?onload=checkAuth">
-    </script>
+
+
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 
     <title>SirFizX Manor</title>
   </head>
@@ -453,10 +459,11 @@
     <pre id="output"></pre>
 
     <div id='result'></div>
-    <input type="text" id="search-input" />
+   <!-- <input type="text" id="search-input" /> -->
 </section>
 <section>
-  <iframe src="http://commonstandardsproject.com/search" width="100%" height="800px"></iframe>
+  <button id="reset-search" onclick="resetSearch(event)">
+  <iframe id='search' src="http://commonstandardsproject.com/search" width="100%" height="800px"></iframe>
 </section>
 </div><!--End container div-->
     
